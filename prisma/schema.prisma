@@ -19,9 +19,35 @@ model User {
   password String
 
   role UserRole @default(customer)
+  deliveries Delivery[]
 
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
 
   @@map("users")
 }
+
+enum DeliveryStatus {
+  processing
+  delivered
+  shipped
+}
+
+model Delivery {
+  id String @id @default(uuid())
+  name String
+  userId String @map("user_id")
+  description String
+
+  status DeliveryStatus @default(processing)
+  
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("deliveries")
+  
+  
+  
+  }
