@@ -32,6 +32,6 @@ export class UsersController {
         // desestruturando o user para não retornar a senha no response
         const { password: _, ...userWithoutPassword } = user
 
-        return response.json( userWithoutPassword )
+        return response.status(201).json( userWithoutPassword )
     }
 }
