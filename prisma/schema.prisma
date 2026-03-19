@@ -35,7 +35,6 @@ enum DeliveryStatus {
 
 model Delivery {
   id          String @id @default(uuid())
-  name        String
   userId      String @map("user_id")
   description String
 
