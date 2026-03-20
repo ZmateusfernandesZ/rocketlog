@@ -8,5 +8,5 @@ export const routes = Router()
 
 routes.use("/users", usersRoutes)
 routes.use("/sessions", sessionsRoutes)
-routes.use("/deliveries", deliveriesRoutes)
 routes.use("/deliveries/logs", deliveriesLogsRoutes)
+routes.use("/deliveries", deliveriesRoutes)

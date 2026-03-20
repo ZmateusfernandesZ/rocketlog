@@ -28,10 +28,18 @@ export class DeliveriesController {
                     select: {
                         name: true,
                         email: true
+                    },
+                },
+                Logs: {
+                    select: {
+                        description: true, 
+                        updatedAt: true
                     }
                 }
             }
         })
+
+        
 
         return response.json(deliveries)
 
