@@ -65,6 +65,10 @@ export class DeliveriesLogsController {
                 }}
             }
         })
+
+        if (!delivery) {
+            throw new AppError("Pedido não encontrada", 404)
+        }
     
 
         if (request.user?.role === "customer" && request.user.id !== delivery?.userId) {
